@@ -1,65 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DevOps AWS Project</title>
-
+    <title>Consultancy Check-In</title>
     <style>
-        body{
-            background-color:#0f172a;
-            color:white;
-            font-family:Arial;
-            text-align:center;
-            padding-top:100px;
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #07152f;
+            color: white;
         }
 
-        h1{
-            font-size:50px;
-            color:#38bdf8;
+        .container {
+            width: 520px;
+            margin: 45px auto;
+            background: #1d2b4a;
+            padding: 35px;
+            border-radius: 22px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        p{
-            font-size:22px;
+        h1 {
+            text-align: center;
+            color: #42bfff;
+            margin-bottom: 25px;
         }
 
-        .box{
-            background:#1e293b;
-            width:60%;
-            margin:auto;
-            padding:40px;
-            border-radius:15px;
-            box-shadow:0px 0px 20px rgba(0,0,0,0.5);
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
         }
 
-        button{
-            background:#38bdf8;
-            color:white;
-            border:none;
-            padding:15px 30px;
-            font-size:18px;
-            border-radius:10px;
-            cursor:pointer;
+        textarea {
+            height: 90px;
+            resize: none;
         }
 
-        button:hover{
-            background:#0284c7;
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #42bfff;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1ca9f0;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .links a {
+            color: #42bfff;
+            text-decoration: none;
+            margin: 0 12px;
         }
     </style>
-
 </head>
 
 <body>
 
-    <div class="box">
-        <h1>DevOps + AWS Project</h1>
+    <div class="container">
 
-        <p>
-            Visitor Management Application deployed using
-            Flask, Docker, GitHub Actions and AWS EC2.
-        </p>
+        <h1>Consultancy Check-In</h1>
 
-        <button>
-            Project Running Successfully
-        </button>
+        <form action="/submit" method="POST">
+
+            <input type="text" name="name" placeholder="Full Name" required>
+
+            <input type="email" name="email" placeholder="Email">
+
+            <input type="text" name="phone" placeholder="Phone Number" required>
+
+            <select name="service_type" required>
+                <option value="">Select Service Type</option>
+                <option>Job Consultation</option>
+                <option>Resume Help</option>
+                <option>Immigration Support</option>
+                <option>Training Inquiry</option>
+                <option>Interview Preparation</option>
+                <option>Document Submission</option>
+                <option>Other</option>
+            </select>
+
+            <select name="appointment_type" required>
+                <option value="">Appointment Type</option>
+                <option>Walk-In</option>
+                <option>Scheduled Appointment</option>
+                <option>Follow-Up</option>
+            </select>
+
+            <input type="text" name="consultant" placeholder="Consultant / Staff to Meet">
+
+            <textarea name="reason" placeholder="Reason / Notes"></textarea>
+
+            <button type="submit">Generate Token & Check In</button>
+
+        </form>
+
+        <div class="links">
+            <a href="/admin">Admin Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+
     </div>
 
 </body>
